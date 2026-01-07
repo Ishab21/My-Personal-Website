@@ -384,3 +384,7 @@ body {
 .slide .item:nth-child(5) {
   left: 50%;
 }
+@media (max-width: 768px) {
+  /* mobile-only styles */
+}
+
