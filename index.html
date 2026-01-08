@@ -4,41 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meet Isha!</title>
+
+    <!-- Fonts (keep what you like; these are the ones you already used) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Satisfy&family=Hi+Melody&family=Crimson+Text:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+
     <link href="mypage.css" rel="stylesheet" />
-    <script src="page.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Satisfy&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Pompiere&family=Reenie+Beanie&family=Satisfy&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
   </head>
+
   <body>
     <main>
+      <!-- HEADER / NAV -->
       <header class="top-bar">
-        <nav class="nav-links">
+        <!-- Desktop nav -->
+        <nav class="nav-links" aria-label="Primary">
           <ul>
             <li><a href="mypage.html">About</a></li>
             <li><a href="Projects.html">Projects</a></li>
@@ -47,29 +30,57 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
+
+        <!-- Mobile nav (hamburger) -->
+        <nav class="mobile-nav" aria-label="Mobile">
+          <button
+            class="hamburger-icon"
+            type="button"
+            onclick="toggleMenu()"
+            aria-label="Open menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <ul class="menu-links" id="mobileMenu">
+            <li><a href="mypage.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="Projects.html" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="Artwork.html" onclick="toggleMenu()">Artwork</a></li>
+            <li>
+              <a href="minigames.html" onclick="toggleMenu()">Mini Games</a>
+            </li>
+            <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+          </ul>
+        </nav>
       </header>
 
+      <!-- HERO VIDEO -->
       <section class="video-strip">
         <video autoplay muted loop playsinline>
           <source src="shortclip.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div class="hero-text">
-        <h1 class="overlay-title">Isha Barua</h1>
-        <h2 class="overlay-subtitle">Frontend Developer + UX Design</h2>
-      </section> 
-      </div>
 
+        <div class="hero-text">
+          <h1 class="overlay-title">Isha Barua</h1>
+          <h2 class="overlay-subtitle">Frontend Developer + UX Design</h2>
+        </div>
+      </section>
+
+      <!-- BOTTOM BAR -->
       <div class="bottom-bar">
         <span class="highlight-text"></span>
         <span class="sub-text"
-          >FRONTEND/WEB DEVELOPER | CONTENT CREATOR | ARTIST
-        </span>
+          >FRONTEND/WEB DEVELOPER | CONTENT CREATOR | ARTIST</span
+        >
       </div>
 
+      <!-- ABOUT -->
       <section class="about-section">
         <div class="about-me-text slide-left">
-          <h1>Meet Isha !</h1>
+          <h1>Meet Isha!</h1>
           <blockquote>
             <p>
               Hey there! I’m Isha Barua — a creative at heart with a passion for
@@ -86,10 +97,23 @@
             </p>
           </blockquote>
         </div>
-        <div class="about-me-image">
-          <img src="img.JPG" alt="Isha Barua" class="slide-right" />
+
+        <div class="about-me-image slide-right">
+          <img src="img.JPG" alt="Isha Barua" />
         </div>
       </section>
     </main>
+
+    <!-- Works even if page.js is missing -->
+    <script>
+      // Only define if not already defined elsewhere
+      if (typeof window.toggleMenu !== "function") {
+        window.toggleMenu = function () {
+          const menu = document.getElementById("mobileMenu");
+          if (!menu) return;
+          menu.classList.toggle("open");
+        };
+      }
+    </script>
   </body>
 </html>
