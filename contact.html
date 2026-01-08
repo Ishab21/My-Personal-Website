@@ -5,17 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Me</title>
     <link rel="stylesheet" href="contact.css" />
-    <link rel="mainpage" href="mypage.html" />
   </head>
+
   <body>
     <header class="top-bar">
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary">
         <ul>
-          <li><a href="index.html">About</a></li>
+          <li><a href="mypage.html">About</a></li>
           <li><a href="Projects.html">Projects</a></li>
           <li><a href="Artwork.html">Artwork</a></li>
           <li><a href="minigames.html">Mini Games</a></li>
           <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile nav -->
+      <nav class="mobile-nav" aria-label="Mobile">
+        <button
+          class="hamburger-icon"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="menu-links" id="mobileMenu">
+          <li><a href="mypage.html" onclick="toggleMenu()">About</a></li>
+          <li><a href="Projects.html" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="Artwork.html" onclick="toggleMenu()">Artwork</a></li>
+          <li>
+            <a href="minigames.html" onclick="toggleMenu()">Mini Games</a>
+          </li>
+          <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -23,6 +45,7 @@
     <div class="container">
       <form action="https://api.web3forms.com/submit" method="POST">
         <h2>Get In Touch</h2>
+
         <input
           type="hidden"
           name="access_key"
@@ -56,6 +79,13 @@
         <button type="submit">Send</button>
       </form>
     </div>
-    <script src=""></script>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        if (!menu) return;
+        menu.classList.toggle("open");
+      }
+    </script>
   </body>
 </html>
