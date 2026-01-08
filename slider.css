@@ -1,20 +1,39 @@
-.top-bar {
-  background-color: rgb(136, 17, 11); /* #1c3015 Rosie red */
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.8rem 3rem;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Header / Nav ===== */
+.top-bar {
+  background-color: rgb(136, 17, 11);
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Desktop nav */
 .nav-links ul {
   list-style: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 5rem;
   margin: 0;
   padding: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-links a {
@@ -26,35 +45,94 @@
 }
 
 .nav-links a:hover {
-  color: #e9ca76; /* gold highlight */
+  color: #e9ca76;
 }
 
-* {
+/* Mobile nav defaults (hidden on desktop) */
+.mobile-nav {
+  display: none;
+  margin-left: auto;
+  position: relative;
+}
+
+.hamburger-icon {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer;
+
+  width: 38px;
+  height: 34px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hamburger-icon span {
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 999px;
+}
+
+/* Dropdown */
+.menu-links {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  list-style: none;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  padding: 12px;
+
+  min-width: 220px;
+  background: rgba(33, 49, 61, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  z-index: 999;
 }
 
+.menu-links.open {
+  display: block;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.menu-links a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #e9ca76;
+}
+
+/* ===== Page background ===== */
 body {
   background: #c95b28;
-  overflow: hidden;
+  overflow-x: hidden; /* allow vertical scroll on mobile */
 }
 
+/* ===== Slider container ===== */
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
   width: min(1000px, 92vw);
-  height: min(800px, 85vh);
+  height: min(800px, 78vh);
 
+  margin: 30px auto; /* responsive centering */
   background: #f5f5f5;
   box-shadow: 0 30px 50px #4d1111;
   border-radius: 30px;
-  overflow: hidden; /* keeps slide edges clean */
+  overflow: hidden;
+  position: relative; /* needed for absolute slide items */
 }
 
+/* ===== Slides ===== */
 .container .slide .item {
   width: 200px;
   height: 300px;
@@ -88,13 +166,12 @@ body {
 .slide .item:nth-child(5) {
   left: calc(50% + 440px);
 }
-
-/* here n = 0, 1, 2, 3,... */
 .slide .item:nth-child(n + 6) {
   left: calc(50% + 660px);
   opacity: 0;
 }
 
+/* content overlay */
 .item .content {
   position: absolute;
   top: 50%;
@@ -140,7 +217,6 @@ body {
     transform: translate(0, 100px);
     filter: blur(33px);
   }
-
   to {
     opacity: 1;
     transform: translate(0);
@@ -148,6 +224,7 @@ body {
   }
 }
 
+/* arrows */
 .button {
   width: 100%;
   text-align: center;
@@ -169,4 +246,42 @@ body {
 .button button:hover {
   background: #ababab;
   color: #fff;
+}
+
+/* ===== Responsive breakpoint: phone/tablet ===== */
+@media (max-width: 900px) {
+  /* show hamburger, hide desktop nav */
+  .nav-links {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+    margin-left: auto;
+  }
+  .top-bar {
+    justify-content: flex-end;
+  }
+
+  /* slider: make it fit better on small screens */
+  .container {
+    height: 76vh;
+    border-radius: 22px;
+  }
+
+  /* content overlay: smaller + not too wide */
+  .item .content {
+    left: 18px;
+    width: min(320px, 85vw);
+  }
+
+  .content .name {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    height: 72vh;
+    margin: 18px auto;
+  }
 }
