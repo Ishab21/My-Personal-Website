@@ -4,23 +4,126 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Projects</title>
+
+    <!-- Devicon icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
     <link rel="stylesheet" href="proj.css" />
-    <link rel="stylesheet" href="mypage.html" />
   </head>
+
   <body>
+    <!-- HEADER / NAV -->
     <header class="top-bar">
-      <nav class="nav-links">
+      <!-- Desktop nav -->
+      <nav class="nav-links" aria-label="Primary">
         <ul>
-          <li><a href="index.html">About</a></li>
+          <li><a href="mypage.html">About</a></li>
           <li><a href="Projects.html">Projects</a></li>
           <li><a href="Artwork.html">Artwork</a></li>
           <li><a href="minigames.html">Mini Games</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <!-- Mobile nav -->
+      <nav class="mobile-nav" aria-label="Mobile">
+        <button
+          class="hamburger-icon"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="menu-links" id="mobileMenu">
+          <li><a href="mypage.html" onclick="toggleMenu()">About</a></li>
+          <li><a href="Projects.html" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="Artwork.html" onclick="toggleMenu()">Artwork</a></li>
+          <li>
+            <a href="minigames.html" onclick="toggleMenu()">Mini Games</a>
+          </li>
+          <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+      </nav>
     </header>
-    <div class="site-header">
-      <h1>Projects</h1>
-    </div>
+
+    <!-- ✅ PROJECTS SECTION (now correctly under the header) -->
+    <section class="projects-wrap">
+      <h1 class="projects-title">Projects</h1>
+
+      <div class="projects-list">
+        <!-- Card 1 -->
+        <a
+          class="project-card"
+          href="https://your-live-preview-link.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="project-main">
+            <h2 class="project-name">Device Code Phishing</h2>
+            <p class="project-desc">
+              A short 1–2 sentence summary of what the project does and what you
+              built.
+            </p>
+
+            <div class="project-meta">
+              <span>2026-01-07</span>
+              <span class="dot">•</span>
+              <span>3 min</span>
+              <span class="dot">•</span>
+              <span>Preview</span>
+            </div>
+          </div>
+
+          <div class="project-tags" aria-label="Languages used">
+            <i class="devicon-html5-plain" title="HTML"></i>
+            <i class="devicon-css3-plain" title="CSS"></i>
+            <i class="devicon-javascript-plain" title="JavaScript"></i>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a
+          class="project-card"
+          href="https://github.com/yourrepo"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="project-main">
+            <h2 class="project-name">The JSFireTruck Situation</h2>
+            <p class="project-desc">
+              Another short description. Mention the most impressive part (API,
+              UI, data, performance, etc.).
+            </p>
+
+            <div class="project-meta">
+              <span>2026-01-03</span>
+              <span class="dot">•</span>
+              <span>5 min</span>
+              <span class="dot">•</span>
+              <span>Repo</span>
+            </div>
+          </div>
+
+          <div class="project-tags" aria-label="Languages used">
+            <i class="devicon-react-original" title="React"></i>
+            <i class="devicon-typescript-plain" title="TypeScript"></i>
+            <i class="devicon-nodejs-plain" title="Node.js"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        if (!menu) return;
+        menu.classList.toggle("open");
+      }
+    </script>
   </body>
 </html>
