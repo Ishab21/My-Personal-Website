@@ -3,126 +3,237 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <link rel="stylesheet" href="slider.css">
-     <link rel="stylesheet" href="mypage.html">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap" rel="stylesheet">
-     
-     <header class="top-bar">
-        <nav class="nav-links">
-          <ul>
-            <li><a href="index.html">About</a></li>
-            <li><a href="Projects.html">Projects</a></li>
-            <li><a href="Artwork.html">Artwork</a></li>
-            <li><a href="minigames.html">Mini Games</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="slider.css" />
+
+    <title>Artwork</title>
+  </head>
+
+  <body>
+    <header class="top-bar">
+      <nav class="nav-links" aria-label="Primary">
+        <ul>
+          <li><a href="mypage.html">About</a></li>
+          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="Artwork.html">Artwork</a></li>
+          <li><a href="minigames.html">Mini Games</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile nav -->
+      <nav class="mobile-nav" aria-label="Mobile">
+        <button
+          class="hamburger-icon"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="menu-links" id="mobileMenu">
+          <li><a href="mypage.html" onclick="toggleMenu()">About</a></li>
+          <li><a href="Projects.html" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="Artwork.html" onclick="toggleMenu()">Artwork</a></li>
+          <li>
+            <a href="minigames.html" onclick="toggleMenu()">Mini Games</a>
+          </li>
+          <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- SLIDER -->
     <div class="container">
-    <div class="bg"></div>
-
-
-        <div class="slide">
-
-            
-          
-            <div class="item" style="background-image: url(skel.jpg);">
-                <div class="content">
-                    <div class="name">Deep Down</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
+      <div class="slide">
+        <div class="item" style="background-image: url(/Images/skel.jpg)">
+          <div class="content">
+            <div class="name">Deep Down</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
             </div>
-            <div class="item" style="background-image: url(OrangeDream.jpg);">
-                <div class="content">
-                    <div class="name">The Orange Dream</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(PondLilies.jpg);">
-                <div class="content">
-                    <div class="name">Pond Lilies</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(DarkNight.jpg);">
-                <div class="content">
-                    <div class="name">Darkest things</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(BeautyNature.jpg);">
-                <div class="content">
-                    <div class="name">Womans Beauty</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(contrast.jpg);">
-                <div class="content">
-                    <div class="name">Color Theory</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(Hawaii.jpg);">
-                <div class="content">
-                    <div class="name">The Memories</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(margarita.jpg);">
-                <div class="content">
-                    <div class="name">Mystery</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(shrooms.jpg);">
-                <div class="content">
-                    <div class="name">Imagination</div>
-                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                    <a href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav" target="_blank" class="etsy-link">
-                    <button type="button">BUY</button>
-                    </a>
-                </div>
-            </div>
-            
-
-        </div>
-        
-
-        <div class="button">
-            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
         </div>
 
+        <div
+          class="item"
+          style="background-image: url(/Images/OrangeDream.jpg)"
+        >
+          <div class="content">
+            <div class="name">The Orange Dream</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+            </div>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="background-image: url(./Images/PondLilies.jpg)"
+        >
+          <div class="content">
+            <div class="name">Pond Lilies</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+            </div>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(/Images/DarkNight.jpg)">
+          <div class="content">
+            <div class="name">Darkest things</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+            </div>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="background-image: url(/Images/BeautyNature.jpg)"
+        >
+          <div class="content">
+            <div class="name">Womans Beauty</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+            </div>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(/Images/contrast.jpg)">
+          <div class="content">
+            <div class="name">Color Theory</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+            </div>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(/Images/Hawaii.jpg)">
+          <div class="content">
+            <div class="name">The Memories</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+            </div>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(/Images/margarita.jpg)">
+          <div class="content">
+            <div class="name">Mystery</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+            </div>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(/Images/shrooms.jpg)">
+          <div class="content">
+            <div class="name">Imagination</div>
+            <div class="des">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+            </div>
+            <a
+              href="https://www.etsy.com/shop/cloudyartsshop?ref=seller-platform-mcnav"
+              target="_blank"
+              class="etsy-link"
+            >
+              <button type="button">BUY</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="button">
+        <button class="prev" aria-label="Previous slide">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="next" aria-label="Next slide">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
     </div>
-    
+
     <script src="page.js"></script>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        if (!menu) return;
+        menu.classList.toggle("open");
+      }
+    </script>
   </body>
 </html>
