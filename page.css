@@ -227,7 +227,7 @@ main {
 .about-me-image img {
   width: 100%;
   max-width: 520px;
-  height: auto;
+  height: 110%;
   border-radius: 14px;
   object-fit: cover;
 
