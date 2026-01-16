@@ -315,5 +315,16 @@ main {
     font-size: 0.9rem;
   }
 }
+@media (max-width: 900px) {
+  .about-me-image img {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-me-image img {
+    min-height: 340px;
+  }
+}
 
 
