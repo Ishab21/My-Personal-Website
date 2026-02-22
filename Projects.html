@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sip Theory • Project</title>
+    <title>My Projects</title>
 
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-    <link rel="stylesheet" href="sip-theory.css" />
+
+    <link rel="stylesheet" href="proj.css" />
   </head>
 
   <body>
-    <!-- Top Nav (matches your Projects.html structure) -->
     <header class="top-bar">
       <nav class="nav-links" aria-label="Primary">
         <ul>
           <li><a href="index.html">About</a></li>
-          <li><a href="Projects.html" class="active">Projects</a></li>
+          <li><a href="Projects.html">Projects</a></li>
           <li><a href="Artwork.html">Artwork</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -38,159 +38,173 @@
           <li><a href="./index.html" onclick="toggleMenu()">About</a></li>
           <li><a href="./Projects.html" onclick="toggleMenu()">Projects</a></li>
           <li><a href="./Artwork.html" onclick="toggleMenu()">Artwork</a></li>
+
           <li><a href="./contact.html" onclick="toggleMenu()">Contact</a></li>
         </ul>
       </nav>
     </header>
 
-    <main class="page">
-      <!-- Hero -->
-      <section class="hero" aria-labelledby="sip-title">
-        <div class="hero-content">
-          <p class="eyebrow">Concept brand website • HTML / CSS / JavaScript</p>
-          <h1 id="sip-title">Sip Theory</h1>
-          <p class="lead">
-            A concept boba brand site built to feel like a story you can scroll through—combining
-            immersive copy, responsive layout decisions, and small UI interactions that keep the
-            experience playful but polished.
-          </p>
+    <section class="projects-wrap">
+      <h1 class="projects-title">Projects</h1>
 
-          <div class="cta-row">
-            <a class="btn primary" href="https://ishab21.github.io/Sip-Theory/" target="_blank" rel="noopener">
-              View Live Site
-            </a>
-            <a class="btn" href="sip-theory-ux.html">
-              UX / UI Case Study
-            </a>
-            <a class="btn ghost" href="#highlights">
-              Jump to Highlights
-            </a>
-          </div>
+      <div class="projects-list">
+        <!-- Card 1 (UPDATED: now has 3 links) -->
+        <div class="project-card project-card--static">
+          <div class="project-main">
+            <h2 class="project-name">Sip Theory</h2>
+            <p class="project-desc">
+              Sip Theory is a concept boba brand website I built with HTML, CSS,
+              and JavaScript, focusing on immersive storytelling, responsive
+              design, and refined UI interactions. This project was especially
+              meaningful to me because it combined something I genuinely enjoy
+              with creative and technical problem-solving, allowing me to turn a
+              familiar, personal experience into an engaging digital product.
+              Having worked part-time in boba shops for the majority of my teen
+              years, cafés have always held a special place for me. These roles
+              challenged me in fast-paced environments and helped me grow into a
+              more responsible, adaptable, and quick-thinking individual.
+            </p>
 
-          <div class="chips" aria-label="Project highlights">
-            <span class="chip">Immersive storytelling</span>
-            <span class="chip">Responsive design</span>
-            <span class="chip">Micro-interactions</span>
-            <span class="chip">Accessibility-minded</span>
-          </div>
-        </div>
-
-        <div class="hero-visual" role="img" aria-label="Sip Theory preview image placeholder">
-          <!-- Replace with a real screenshot when you have one -->
-          <div class="mock-card">
-            <div class="mock-top"></div>
-            <div class="mock-lines">
-              <span></span><span></span><span></span><span></span>
+            <div class="project-meta">
+              <span>2026-01-07</span>
+              <span class="dot">•</span>
+              <span>Project</span>
+              <span class="dot">•</span>
+              <span>Case Study</span>
             </div>
-            <div class="mock-pill-row">
-              <span></span><span></span><span></span>
+
+            <div class="project-actions">
+              <a class="mini-btn" href="sip-theory.html">Project Page</a>
+              <a class="mini-btn" href="sip-theory-ux.html">UX/UI Case Study</a>
+              <a
+                class="mini-btn ghost"
+                href="https://ishab21.github.io/Sip-Theory/"
+                target="_blank"
+                rel="noopener"
+              >
+                Live Site
+              </a>
             </div>
           </div>
-          <p class="visual-note">Tip: drop a screenshot into <code>assets/sip-preview.png</code> and swap this block.</p>
-        </div>
-      </section>
 
-      <!-- Quick Facts -->
-      <section class="grid-3" aria-label="Project summary">
-        <article class="card">
-          <h2>Role</h2>
-          <p>Designer + Developer (solo)</p>
-          <p class="muted">Brand concept, UI, front-end build, interaction design</p>
-        </article>
-
-        <article class="card">
-          <h2>Tech</h2>
-          <ul class="clean">
-            <li><i class="devicon-html5-plain"></i> HTML (semantic sections)</li>
-            <li><i class="devicon-css3-plain"></i> CSS (responsive layout + motion)</li>
-            <li><i class="devicon-javascript-plain"></i> JavaScript (UI behaviors)</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Outcome</h2>
-          <p>
-            A portfolio-ready experience that demonstrates story-led UX, clean visual hierarchy,
-            and intentional interaction choices—without relying on frameworks.
-          </p>
-        </article>
-      </section>
-
-      <!-- Highlights -->
-      <section id="highlights" class="section" aria-labelledby="highlights-title">
-        <div class="section-head">
-          <h2 id="highlights-title">What makes Sip Theory “work”</h2>
-          <p class="muted">
-            These are the core UX choices that drive the feel of the product.
-          </p>
-        </div>
-
-        <div class="stack">
-          <article class="card reveal">
-            <h3>Story-first structure</h3>
-            <p>
-              Instead of a typical menu + sections, the page is paced like a narrative.
-              Copy blocks are short, scannable, and intentionally sequenced so users
-              can “discover” the brand, not just read about it.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <h3>Responsive hierarchy (not just responsive layout)</h3>
-            <p>
-              On smaller screens, key actions stay visible and text hierarchy tightens.
-              That keeps the experience calm and readable instead of turning into an endless scroll wall.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <h3>Micro-interactions with restraint</h3>
-            <p>
-              Motion is used to guide attention (hover states, subtle transitions, section emphasis),
-              not to decorate. This keeps it feeling “premium café” rather than “loud landing page.”
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Gallery -->
-      <section class="section" aria-labelledby="gallery-title">
-        <div class="section-head">
-          <h2 id="gallery-title">Screens (optional)</h2>
-          <p class="muted">Add screenshots here when you’re ready.</p>
-        </div>
-
-        <div class="gallery">
-          <figure class="shot">
-            <div class="shot-img" aria-hidden="true"></div>
-            <figcaption>Home / hero section</figcaption>
-          </figure>
-          <figure class="shot">
-            <div class="shot-img" aria-hidden="true"></div>
-            <figcaption>Story + brand moment</figcaption>
-          </figure>
-          <figure class="shot">
-            <div class="shot-img" aria-hidden="true"></div>
-            <figcaption>Responsive layout</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- Footer CTA -->
-      <section class="footer-cta" aria-label="Next steps">
-        <div class="footer-cta-inner">
-          <h2>Want the full UX story?</h2>
-          <p class="muted">
-            I documented decisions, constraints, trade-offs, and what I learned building this end-to-end.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="sip-theory-ux.html">Read the UX/UI Case Study</a>
-            <a class="btn" href="Projects.html">Back to Projects</a>
+          <div class="project-tags" aria-label="Languages used">
+            <i class="devicon-html5-plain" title="HTML"></i>
+            <i class="devicon-css3-plain" title="CSS"></i>
+            <i class="devicon-javascript-plain" title="JavaScript"></i>
           </div>
         </div>
-      </section>
-    </main>
 
-    <script src="sip-theory.js"></script>
+        <!-- Card 2 -->
+        <a
+          class="project-card"
+          href="WhiskandWork.mp4"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="project-main">
+            <h2 class="project-name">To Do List</h2>
+            <p class="project-desc">
+              This a project where i have custom designed a simple "to-do-list"
+              but made more designed accustommed that i find comfort in and made
+              me use during my college semesters to help me stay on top om my
+              work but also feel inspired and comfort onto the eyes.
+            </p>
+
+            <div class="project-meta">
+              <span>2026-01-03</span>
+              <span class="dot">•</span>
+              <span>5 min</span>
+              <span class="dot">•</span>
+              <span>Repo</span>
+            </div>
+          </div>
+
+          <div class="project-tags" aria-label="Languages used">
+            <i class="devicon-react-original" title="React"></i>
+          </div>
+        </a>
+
+        <a
+          class="project-card"
+          href="https://fensi.my.canva.site/workandwhisk"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="project-main">
+            <h2 class="project-name">Work and Whisk!</h2>
+            <p class="project-desc">
+              Work and Whisk is a cozy, interactive study timer that transforms
+              focus into a visual ritual. Users set a study duration, press
+              start, and watch their virtual matcha gradually become richer,
+              foamier, and more whisked the longer they stay focused. By turning
+              productivity into a calming, aesthetic experience, Work and Whisk
+              encourages users to slow down, stay present, and build consistent
+              study habits through gentle visual reward.
+            </p>
+
+            <div class="project-meta">
+              <span>2026-01-017</span>
+              <span class="dot">•</span>
+              <span>2 days</span>
+              <span class="dot">•</span>
+              <span>Repo</span>
+            </div>
+          </div>
+
+          <div class="project-tags" aria-label="Languages used">
+            <i class="devicon-react-original" title="React"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- PROJECT SLIDER -->
+    <div class="slider-section">
+      <div class="slider-track">
+        <div class="slide">UI / UX</div>
+        <div class="slide">Web Dev</div>
+        <div class="slide">React</div>
+        <div class="slide">TypeScript</div>
+        <div class="slide">Design Systems</div>
+        <div class="slide">Branding</div>
+
+        <!-- duplicate for seamless loop -->
+        <div class="slide">UI / UX</div>
+        <div class="slide">Web Dev</div>
+        <div class="slide">React</div>
+        <div class="slide">TypeScript</div>
+        <div class="slide">Design Systems</div>
+        <div class="slide">Branding</div>
+      </div>
+    </div>
+
+    <!-- DESIGNS SECTION -->
+    <section class="projects-wrap">
+      <h1 class="projects-title">Designs I’ve Created</h1>
+
+      <div class="design-slider">
+        <div class="design-track">
+          <img src="3.png" alt="3.png" />
+          <img src="5.png" alt="5.png" />
+          <img src="6.png" alt="6.png" />
+          <img src="8.png" alt="8.png" />
+          <img src="9.png" alt="9.png" />
+
+          <img src="3.png" alt="3.png" />
+          <img src="5.png" alt="5.png" />
+          <img src="6.png" alt="6.png" />
+          <img src="8.png" alt="8.png" />
+          <img src="9.png" alt="9.png" />
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        if (!menu) return;
+        menu.classList.toggle("open");
+      }
+    </script>
   </body>
 </html>
