@@ -2,106 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects</title>
 
   <link rel="stylesheet" href="proj.css" />
-  <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
 </head>
 
 <body>
 
-<header class="top-bar">
-  <nav class="nav-links">
-    <ul>
-      <li><a href="index.html">About</a></li>
-      <li><a href="Projects.html">Projects</a></li>
-      <li><a href="Artwork.html">Artwork</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header class="top-bar">
+    <nav class="nav-links" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">About</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Artwork.html">Artwork</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-<section class="projects-wrap">
-  <h1 class="projects-title">Projects</h1>
+    <!-- Optional mobile nav if your site uses it -->
+    <nav class="mobile-nav" aria-label="Mobile">
+      <button class="hamburger-icon" type="button" onclick="toggleMenu()" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
 
-  <div class="projects-list">
+      <ul class="menu-links" id="mobileMenu">
+        <li><a href="./index.html" onclick="toggleMenu()">About</a></li>
+        <li><a href="./Projects.html" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="./Artwork.html" onclick="toggleMenu()">Artwork</a></li>
+        <li><a href="./contact.html" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- SIP THEORY -->
-    <div class="project-card">
-      <div class="project-main">
-        <h2 class="project-name">Sip Theory</h2>
+  <section class="projects-wrap">
+    <h1 class="projects-title">Projects</h1>
 
-        <p class="project-desc">
-          Sip Theory is a concept boba brand website I built with HTML, CSS,
-          and JavaScript, focusing on immersive storytelling, responsive design,
-          and refined UI interactions. This project blends creative storytelling
-          with structured UX thinking to create a digital café experience.
-        </p>
+    <div class="projects-list">
 
-        <div class="project-meta">
-          <span>2026-01-07</span>
-          <span class="dot">•</span>
-          <span>Project</span>
+      <!-- SIP THEORY -->
+      <div class="project-card project-card--static">
+        <div class="project-main">
+          <h2 class="project-name">Sip Theory</h2>
+
+          <p class="project-desc">
+            Sip Theory is a concept boba brand website I built with HTML, CSS,
+            and JavaScript, focusing on immersive storytelling, responsive design,
+            and refined UI interactions. This project blends creative storytelling
+            with structured UX thinking to create a digital café experience.
+          </p>
+
+          <div class="project-meta">
+            <span>2026-01-07</span>
+            <span class="dot">•</span>
+            <span>Project</span>
+            <span class="dot">•</span>
+            <span>Case Study</span>
+          </div>
+
+          <!-- TWO SQUARE LINKS -->
+          <div class="square-links">
+            <a class="square-btn" href="https://ishab21.github.io/Sip-Theory/" target="_blank" rel="noopener">
+              View Project
+            </a>
+            <a class="square-btn" href="siptheory_ux.html">
+              UX Case Study
+            </a>
+          </div>
         </div>
 
-        <!-- TWO SQUARE BUTTONS -->
-        <div class="square-links">
-          <a href="https://ishab21.github.io/Sip-Theory/" target="_blank" class="square-btn">
-            View Project
-          </a>
-
-          <a href="siptheory_ux.html" class="square-btn">
-            Behind The Scenes
-          </a>
+        <div class="project-tags" aria-label="Languages used">
+          <i class="devicon-html5-plain" title="HTML"></i>
+          <i class="devicon-css3-plain" title="CSS"></i>
+          <i class="devicon-javascript-plain" title="JavaScript"></i>
         </div>
       </div>
 
-      <div class="project-tags">
-        <i class="devicon-html5-plain"></i>
-        <i class="devicon-css3-plain"></i>
-        <i class="devicon-javascript-plain"></i>
+      <!-- WORK & WHISK -->
+      <div class="project-card project-card--static">
+        <div class="project-main">
+          <h2 class="project-name">Work and Whisk!</h2>
+
+          <p class="project-desc">
+            Work and Whisk is a cozy interactive study timer that transforms
+            focus into a visual ritual. Users set a study duration and watch their
+            virtual matcha become richer and more whisked the longer they stay focused—
+            turning productivity into a calming aesthetic reward.
+          </p>
+
+          <div class="project-meta">
+            <span>2026-01-17</span>
+            <span class="dot">•</span>
+            <span>2 days</span>
+            <span class="dot">•</span>
+            <span>Case Study</span>
+          </div>
+
+          <!-- TWO SQUARE LINKS -->
+          <div class="square-links">
+            <a class="square-btn" href="https://fensi.my.canva.site/workandwhisk" target="_blank" rel="noopener">
+              View Project
+            </a>
+            <a class="square-btn" href="workandwhisk_ux.html">
+              UX Case Study
+            </a>
+          </div>
+        </div>
+
+        <div class="project-tags" aria-label="Languages used">
+          <i class="devicon-react-original" title="React"></i>
+        </div>
       </div>
+
     </div>
+  </section>
 
-
-    <!-- WORK & WHISK -->
-    <div class="project-card">
-      <div class="project-main">
-        <h2 class="project-name">Work and Whisk!</h2>
-
-        <p class="project-desc">
-          Work and Whisk is a cozy interactive study timer that transforms
-          focus into a visual ritual. As users stay focused, their virtual
-          matcha becomes richer and more whisked — turning productivity into
-          a calming aesthetic reward.
-        </p>
-
-        <div class="project-meta">
-          <span>2026-01-17</span>
-          <span class="dot">•</span>
-          <span>2 days</span>
-        </div>
-
-        <!-- TWO SQUARE BUTTONS -->
-        <div class="square-links">
-          <a href="https://fensi.my.canva.site/workandwhisk" target="_blank" class="square-btn">
-            View Project
-          </a>
-
-          <a href="workandwhisk_ux.html" class="square-btn">
-            Behind The Scenes
-          </a>
-        </div>
-      </div>
-
-      <div class="project-tags">
-        <i class="devicon-react-original"></i>
-      </div>
-    </div>
-
-  </div>
-</section>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      if (!menu) return;
+      menu.classList.toggle("open");
+    }
+  </script>
 
 </body>
 </html>
