@@ -15,6 +15,9 @@ body {
   background-color: rgb(238, 222, 205);
 }
 
+/* =========================
+   NAV
+========================= */
 .top-bar {
   background-color: rgb(233, 186, 57);
   display: flex;
@@ -137,6 +140,10 @@ body {
     justify-content: flex-end;
   }
 }
+
+/* =========================
+   PROJECTS PAGE
+========================= */
 .projects-wrap {
   width: min(1000px, 92vw);
   margin: 30px auto 60px;
@@ -245,101 +252,17 @@ body {
   }
 }
 
-/* ===== Text Slider ===== */
-.slider-section {
-  margin-top: 40px;
-  overflow: hidden;
-}
-
-.slider-track {
-  display: flex;
-  gap: 30px;
-  animation: scroll 20s linear infinite;
-}
-
-.slide {
-  font-size: 22px;
-  font-weight: 700;
-  color: #1e1e1e;
-  white-space: nowrap;
-  opacity: 0.8;
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* ===== Design Image Slider ===== */
-.design-slider {
-  margin-top: 30px;
-  overflow: hidden;
-}
-
-.design-track {
-  display: flex;
-  gap: 24px;
-  animation: scroll 25s linear infinite;
-}
-
-.design-track img {
-  height: 260px;
-  border-radius: 16px;
-  object-fit: cover;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease;
-}
-
-.design-track img:hover {
-  transform: scale(1.04);
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-  .design-track img {
-    height: 200px;
-  }
-}
+/* =========================
+   SQUARE LINKS
+========================= */
 .square-links {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.square-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  height: 120px;
-  background-color: #f4e4d4;
-  color: #2b2b2b;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 18px;
-  transition: 0.3s ease;
-  text-align: center;
-  padding: 10px;
-}
-
-.square-btn:hover {
-  background-color: #2b2b2b;
-  color: #f4e4d4;
-  transform: translateY(-4px);
-}
-/* Two square buttons under each project */
-.square-links{
   display: flex;
   gap: 16px;
   margin-top: 18px;
   flex-wrap: wrap;
 }
 
-.square-btn{
+.square-btn {
   width: 160px;
   height: 120px;
   display: flex;
@@ -349,23 +272,375 @@ body {
   padding: 10px 12px;
   border-radius: 18px;
 
-  background: rgba(255,255,255,0.16);
-  border: 2px solid rgba(255,255,255,0.28);
-  color: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   font-weight: 700;
 
-  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease,
+    border 0.25s ease;
 }
 
-.square-btn:hover{
+.square-btn:hover {
   transform: translateY(-4px);
-  background: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.92);
   color: #2b2b2b;
-  border-color: rgba(255,255,255,0.95);
+  border-color: rgba(255, 255, 255, 0.95);
 }
 
-/* Optional: if your project card is an <a>, this prevents blue link styling */
-.project-card--static{
+.project-card--static {
   text-decoration: none;
+}
+
+/* =========================
+   UX CASE STUDY PAGES
+   (matches your reference style)
+========================= */
+.ux-body {
+  background: #ffffff;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial;
+  color: #111;
+}
+
+/* top thin header */
+.ux-top {
+  width: min(1100px, 92vw);
+  margin: 22px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.ux-top-left {
+  text-align: left;
+}
+
+.ux-top-center {
+  text-align: center;
+}
+
+.ux-top-right {
+  text-align: right;
+}
+
+.ux-top-right a {
+  color: rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 2px;
+}
+
+/* hero */
+.ux-hero {
+  width: min(1100px, 92vw);
+  margin: 18px auto 0;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff, #ffffff);
+  padding: 80px 30px 64px;
+}
+
+.ux-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ux-badge {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+  margin-bottom: 10px;
+}
+
+.ux-title {
+  font-size: clamp(52px, 6vw, 88px);
+  margin: 0;
+  letter-spacing: -0.02em;
+  font-weight: 900;
+}
+
+.ux-subtitle {
+  margin: 14px auto 0;
+  max-width: 62ch;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.ux-hero-actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ux-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: white;
+  color: rgba(0, 0, 0, 0.82);
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ux-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.ux-btn-primary {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: #111;
+  color: white;
+}
+
+/* floating orbs */
+.ux-orb {
+  position: absolute;
+  border-radius: 999px;
+  opacity: 0.55;
+  z-index: 1;
+}
+
+.ux-orb-orange {
+  width: 240px;
+  height: 240px;
+  left: -60px;
+  top: -60px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 153, 69, 0.85), rgba(255, 153, 69, 0.14));
+}
+
+.ux-orb-blue {
+  width: 280px;
+  height: 280px;
+  right: -80px;
+  top: -80px;
+  background: radial-gradient(circle at 30% 30%, rgba(73, 165, 255, 0.85), rgba(73, 165, 255, 0.14));
+}
+
+.ux-orb-orange-small {
+  width: 20px;
+  height: 20px;
+  left: 80px;
+  top: 70px;
+  background: rgba(255, 153, 69, 0.7);
+}
+
+.ux-orb-blue-small {
+  width: 26px;
+  height: 26px;
+  right: 120px;
+  top: 120px;
+  background: rgba(73, 165, 255, 0.65);
+}
+
+/* sections */
+.ux-section {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 58px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ux-summary {
+  border-top: none;
+  padding-top: 40px;
+}
+
+.ux-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.ux-summary-item h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.ux-summary-item p,
+.ux-summary-item ul {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.62);
+  line-height: 1.7;
+  font-size: 14.5px;
+}
+
+.ux-summary-item ul {
+  padding-left: 18px;
+}
+
+.ux-step-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.ux-step-kicker {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+  margin-bottom: 8px;
+}
+
+.ux-step-header h2 {
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.ux-step-subtitle {
+  margin: 10px 0 0;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* step grid */
+.ux-step-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.ux-step-text h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.ux-step-text p,
+.ux-step-text ul {
+  color: rgba(0, 0, 0, 0.62);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.ux-step-text ul {
+  padding-left: 18px;
+}
+
+.ux-step-media {
+  text-align: center;
+}
+
+.ux-img-slot {
+  width: 100%;
+  height: 310px;
+  border-radius: 22px;
+  border: 1px dashed rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.ux-img-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+.ux-caption {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* ideation style like reference */
+.ux-ideation {
+  display: grid;
+  gap: 34px;
+}
+
+.ux-idea-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.ux-idea-left h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.ux-idea-left p,
+.ux-idea-left ul {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.62);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.ux-idea-left ul {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+.ux-img-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ux-phone-slot {
+  width: 135px;
+  height: 270px;
+  border-radius: 24px;
+  border: 1px dashed rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* footer actions */
+.ux-footer-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .ux-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ux-step-grid {
+    grid-template-columns: 1fr;
+  }
+  .ux-idea-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .ux-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .ux-step-header h2 {
+    font-size: 34px;
+  }
 }
