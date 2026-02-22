@@ -331,3 +331,41 @@ body {
   color: #f4e4d4;
   transform: translateY(-4px);
 }
+/* Two square buttons under each project */
+.square-links{
+  display: flex;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.square-btn{
+  width: 160px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.16);
+  border: 2px solid rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border 0.25s ease;
+}
+
+.square-btn:hover{
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.92);
+  color: #2b2b2b;
+  border-color: rgba(255,255,255,0.95);
+}
+
+/* Optional: if your project card is an <a>, this prevents blue link styling */
+.project-card--static{
+  text-decoration: none;
+}
