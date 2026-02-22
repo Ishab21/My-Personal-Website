@@ -2,60 +2,407 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work & Whisk – UX Case Study</title>
-  <link rel="stylesheet" href="proj.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work & Whisk • UX Case Study</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+
+  <style>
+    :root{
+      --ink:#10203a;
+      --muted:#5b677a;
+      --line:rgba(16,32,58,.10);
+      --bg:#f6f1e8;
+      --accent:#2fd39a;
+      --accent2:#3aa7ff;
+      --shadow: 0 18px 55px rgba(16,32,58,.12);
+      --radius: 22px;
+      --radius2: 16px;
+      --max: 1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 700px at 22% 10%, rgba(47,211,154,.14), transparent 60%),
+                  radial-gradient(1200px 700px at 85% 15%, rgba(58,167,255,.14), transparent 55%),
+                  var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      line-height:1.55;
+    }
+    .topline{
+      max-width:var(--max);
+      margin:22px auto 0;
+      padding:0 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(16,32,58,.55);
+    }
+    .topline a{
+      color:rgba(16,32,58,.75);
+      text-decoration:none;
+      border-bottom:1px solid rgba(16,32,58,.25);
+      padding-bottom:2px;
+    }
+    .wrap{max-width:var(--max); margin:12px auto 80px; padding:0 18px;}
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.80));
+      border:1px solid var(--line);
+      border-radius: calc(var(--radius) + 8px);
+      box-shadow: var(--shadow);
+      padding: 44px 28px 34px;
+    }
+    .blob{position:absolute;border-radius:999px;opacity:.86;pointer-events:none;}
+    .blob.green{
+      width:230px;height:230px;
+      background: radial-gradient(circle at 30% 30%, rgba(47,211,154,.92), rgba(47,211,154,.18));
+      top:-65px; left:-55px;
+    }
+    .blob.blue{
+      width:260px;height:260px;
+      background: radial-gradient(circle at 30% 30%, rgba(58,167,255,.88), rgba(58,167,255,.18));
+      top:-75px; right:-70px;
+    }
+    .blob.dot{width:22px;height:22px;background:rgba(58,167,255,.55);top:62px;right:96px}
+    .blob.dot2{width:16px;height:16px;background:rgba(47,211,154,.55);top:92px;left:132px}
+
+    .heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center;}
+    .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,32,58,.60);margin:0 0 10px;}
+    .title{font-size: clamp(44px, 6vw, 74px);line-height:.95;margin:0;font-weight:800;letter-spacing:-.02em;}
+    .subtitle{margin:14px 0 0;color:rgba(16,32,58,.72);font-size:16px;max-width:55ch;}
+    .pillRow{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:rgba(16,32,58,.60);font-size:13px;}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:rgba(16,32,58,.06);border:1px solid rgba(16,32,58,.10);}
+    .ctaRow{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:14px;border:1px solid rgba(16,32,58,.14);
+      background:white;text-decoration:none;color:rgba(16,32,58,.92);font-weight:650;
+      box-shadow: 0 10px 25px rgba(16,32,58,.08);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(16,32,58,.12)}
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(47,211,154,.92), rgba(47,211,154,.78));
+      border-color: rgba(47,211,154,.35);
+      color:#072018;
+    }
+    .btn.ghost{background:transparent;box-shadow:none;}
+
+    .heroCard{
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(16,32,58,.10);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 12px 35px rgba(16,32,58,.10);
+    }
+    .heroCard h3{margin:0 0 10px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:rgba(16,32,58,.60);}
+    .heroCard .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .stat{border:1px solid rgba(16,32,58,.10);background:rgba(16,32,58,.03);border-radius:16px;padding:12px;}
+    .stat .big{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:0;}
+    .stat .small{margin:4px 0 0;color:rgba(16,32,58,.62);font-size:12.5px;}
+
+    .section{
+      margin-top:26px;
+      background: rgba(255,255,255,.86);
+      border:1px solid rgba(16,32,58,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .sectionTitle{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:18px;}
+    .bar{width:26px;height:4px;border-radius:999px;background:var(--accent);}
+    .p{margin:0;color:rgba(16,32,58,.78)}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px;}
+    .card{
+      background:white;border:1px solid rgba(16,32,58,.10);
+      border-radius: var(--radius2);padding:16px;
+      box-shadow: 0 12px 28px rgba(16,32,58,.08);
+    }
+    .card h4{margin:0 0 8px;font-size:14px}
+    .list{margin:0;padding-left:18px;color:rgba(16,32,58,.78)}
+    .list li{margin:6px 0}
+    .toolsRow{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;align-items:center;}
+    .tool{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid rgba(16,32,58,.10);border-radius:14px;background:rgba(16,32,58,.03);}
+    .tool i{font-size:22px}
+    .tool span{font-weight:650;font-size:13px}
+    .muted{color:rgba(16,32,58,.62)}
+
+    .process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:14px;}
+    .step{text-align:center;padding:14px 12px;border-radius:18px;border:1px solid rgba(16,32,58,.10);background:white;box-shadow:0 12px 28px rgba(16,32,58,.07);}
+    .iconBubble{
+      width:54px;height:54px;border-radius:18px;margin:0 auto 10px;
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(47,211,154,.14);
+      border:1px solid rgba(47,211,154,.22);
+      font-size:22px;
+    }
+    .step:nth-child(2) .iconBubble{background:rgba(58,167,255,.14);border-color:rgba(58,167,255,.22)}
+    .step:nth-child(3) .iconBubble{background:rgba(47,211,154,.14);border-color:rgba(47,211,154,.22)}
+    .step:nth-child(4) .iconBubble{background:rgba(58,167,255,.14);border-color:rgba(58,167,255,.22)}
+    .step:nth-child(5) .iconBubble{background:rgba(47,211,154,.14);border-color:rgba(47,211,154,.22)}
+    .step h5{margin:0;font-size:14px}
+    .step p{margin:6px 0 0;font-size:12.5px;color:rgba(16,32,58,.65)}
+
+    .bigStep{padding:0;overflow:hidden;}
+    .bigStepHeader{padding:22px 22px 0;}
+    .bigStepHeader .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(16,32,58,.55);margin:0}
+    .bigStepHeader h3{margin:8px 0 0;font-size:30px;letter-spacing:-.02em}
+    .bigStepBody{padding:16px 22px 22px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
+    .callouts{display:grid;gap:10px;}
+    .callout{
+      border-left:4px solid var(--accent);
+      padding:10px 12px;
+      background: rgba(47,211,154,.08);
+      border-radius:14px;
+      border:1px solid rgba(47,211,154,.16);
+      color:rgba(16,32,58,.78);
+      font-size:13px;
+    }
+    .callout.blue{
+      border-left-color: var(--accent2);
+      background: rgba(58,167,255,.08);
+      border-color: rgba(58,167,255,.16);
+    }
+    .board{
+      width:100%;
+      height:260px;
+      border-radius:18px;
+      background:
+        radial-gradient(140px 140px at 22% 20%, rgba(47,211,154,.18), transparent 60%),
+        radial-gradient(160px 160px at 80% 30%, rgba(58,167,255,.18), transparent 60%),
+        rgba(16,32,58,.04);
+      border:1px solid rgba(16,32,58,.10);
+      box-shadow: 0 14px 40px rgba(16,32,58,.08);
+    }
+    .mockPhones{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;}
+    .phone{
+      width:120px;height:250px;border-radius:22px;
+      background: linear-gradient(180deg, rgba(16,32,58,.10), rgba(16,32,58,.05));
+      border:1px solid rgba(16,32,58,.14);
+      box-shadow: 0 18px 45px rgba(16,32,58,.10);
+      position:relative;overflow:hidden;
+    }
+    .phone:before{
+      content:"";position:absolute;inset:14px;border-radius:18px;
+      background: rgba(255,255,255,.65);
+      border:1px solid rgba(16,32,58,.10);
+    }
+
+    .footer{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .process{grid-template-columns:1fr 1fr}
+      .bigStepBody{grid-template-columns:1fr}
+      .mockPhones{justify-content:flex-start}
+    }
+    @media (max-width: 520px){
+      .process{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 
 <body>
-
-<section class="projects-wrap">
-  <h1 class="projects-title">Work & Whisk – UX/UI Case Study</h1>
-
-  <div class="project-card">
-
-    <h2>Problem</h2>
-    <p>
-      Traditional study timers feel robotic and transactional.
-      I wanted to redesign productivity as something emotional,
-      aesthetic, and rewarding.
-    </p>
-
-    <h2>Concept</h2>
-    <p>
-      Users set a study duration and watch their matcha visually
-      evolve as they stay focused — turning time into a calming ritual.
-    </p>
-
-    <h2>UX Strategy</h2>
-    <ul>
-      <li>Visual reward loop</li>
-      <li>Minimal distractions</li>
-      <li>Clear primary action (Start Timer)</li>
-      <li>Soft calming color palette</li>
-    </ul>
-
-    <h2>Design Thinking</h2>
-    <p>
-      The goal was to reduce stress associated with studying and
-      instead associate focus with warmth and comfort.
-    </p>
-
-    <h2>Tech Used</h2>
-    <ul>
-      <li>React (if applicable)</li>
-      <li>Simple UI logic for timer state</li>
-      <li>Visual progress transitions</li>
-    </ul>
-
-    <h2>What I Learned</h2>
-    <p>
-      Emotional design can significantly impact user motivation.
-      Productivity tools don’t need to feel sterile — they can feel human.
-    </p>
-
+  <div class="topline">
+    <div>UX CASE STUDY</div>
+    <div class="muted">Work & Whisk</div>
+    <div><a href="Projects.html">Back to Projects</a></div>
   </div>
-</section>
 
+  <main class="wrap">
+    <section class="hero">
+      <div class="blob green"></div>
+      <div class="blob blue"></div>
+      <div class="blob dot"></div>
+      <div class="blob dot2"></div>
+
+      <div class="heroGrid">
+        <div>
+          <p class="kicker">Cozy Study Timer Concept</p>
+          <h1 class="title">UX CASE STUDY</h1>
+          <p class="subtitle">
+            Work & Whisk reframes productivity as a calming ritual. The UX focuses on
+            reducing stress, reinforcing motivation, and creating a gentle reward loop
+            through visual progress.
+          </p>
+
+          <div class="pillRow">
+            <span class="pill"><strong>Platform:</strong>&nbsp;Web</span>
+            <span class="pill"><strong>Focus:</strong>&nbsp;Habit + Motivation</span>
+            <span class="pill"><strong>Core loop:</strong>&nbsp;Progress → Reward</span>
+          </div>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="https://fensi.my.canva.site/workandwhisk" target="_blank" rel="noopener">Visit site</a>
+            <a class="btn" href="#process">Design process</a>
+            <a class="btn ghost" href="#artifacts">Artifacts</a>
+          </div>
+        </div>
+
+        <aside class="heroCard">
+          <h3>Project Snapshot</h3>
+          <div class="row">
+            <div class="stat">
+              <p class="big">2</p>
+              <p class="small">Day sprint</p>
+            </div>
+            <div class="stat">
+              <p class="big">1</p>
+              <p class="small">Core flow</p>
+            </div>
+            <div class="stat">
+              <p class="big">Timer</p>
+              <p class="small">State + feedback</p>
+            </div>
+            <div class="stat">
+              <p class="big">Reward</p>
+              <p class="small">Visual progress</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="sectionTitle"><span class="bar"></span>Problem Statement</h2>
+      <p class="p">
+        Standard study timers can feel cold and transactional. Users often lose motivation because the
+        experience doesn’t reinforce progress emotionally. The goal was to design a timer that feels
+        calming, rewarding, and visually motivating—without becoming distracting.
+      </p>
+
+      <div class="grid2">
+        <div class="card">
+          <h4>The Solution</h4>
+          <ul class="list">
+            <li>Designed a visual reward loop (matcha “whisks” as you focus).</li>
+            <li>Kept one primary action per step to reduce cognitive load.</li>
+            <li>Used calm hierarchy and spacing to support focus.</li>
+            <li>Designed feedback moments (start, mid-way, completion).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>My Role</h4>
+          <ul class="list">
+            <li>UX strategy + interaction design</li>
+            <li>UI design (visual system + hierarchy)</li>
+            <li>Flow design (set time → focus → reward)</li>
+            <li>Concept build + iteration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <h2 class="sectionTitle"><span class="bar"></span>Design Process</h2>
+
+      <div class="process">
+        <div class="step">
+          <div class="iconBubble">🫶</div>
+          <h5>Empathize</h5>
+          <p>study stress + motivation drop-offs</p>
+        </div>
+        <div class="step">
+          <div class="iconBubble">🧩</div>
+          <h5>Define</h5>
+          <p>make focus feel calm + rewarding</p>
+        </div>
+        <div class="step">
+          <div class="iconBubble">🧠</div>
+          <h5>Ideate</h5>
+          <p>reward loop + minimal flow</p>
+        </div>
+        <div class="step">
+          <div class="iconBubble">🍵</div>
+          <h5>Design</h5>
+          <p>visual system + hierarchy</p>
+        </div>
+        <div class="step">
+          <div class="iconBubble">✅</div>
+          <h5>Test</h5>
+          <p>iterate for clarity + distraction control</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bigStep" id="artifacts">
+      <div class="bigStepHeader">
+        <p class="k">STEP 1</p>
+        <h3>User Motivation Insight</h3>
+      </div>
+      <div class="bigStepBody">
+        <div class="callouts">
+          <div class="callout">
+            <strong>Pain point:</strong> Timers don’t reinforce progress emotionally.
+          </div>
+          <div class="callout blue">
+            <strong>Insight:</strong> A gentle visual reward can increase motivation and reduce stress.
+          </div>
+          <div class="callout">
+            <strong>Goal:</strong> Keep UI minimal so it supports focus.
+          </div>
+        </div>
+        <div class="board" aria-label="Placeholder: notes, inspiration"></div>
+      </div>
+    </section>
+
+    <section class="section bigStep">
+      <div class="bigStepHeader">
+        <p class="k">STEP 2</p>
+        <h3>Flow + Reward Loop</h3>
+      </div>
+      <div class="bigStepBody">
+        <div class="callouts">
+          <div class="callout blue">
+            <strong>Core loop:</strong> Set duration → Start → Focus → Visual progress → Completion reward.
+          </div>
+          <div class="callout">
+            <strong>Constraint:</strong> Reward must be calming, not distracting.
+          </div>
+          <div class="callout blue">
+            <strong>UX choice:</strong> One primary CTA per step.
+          </div>
+        </div>
+        <div class="mockPhones" aria-label="Placeholder: screens / wireframes">
+          <div class="phone"></div><div class="phone"></div><div class="phone"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="sectionTitle"><span class="bar"></span>Challenges & Learnings</h2>
+      <div class="grid2">
+        <div class="card">
+          <h4>Challenges</h4>
+          <ul class="list">
+            <li>Reward satisfying but not distracting.</li>
+            <li>Progress “feels real” with minimal UI.</li>
+            <li>Aesthetic design + functional clarity.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>What I Learned</h4>
+          <ul class="list">
+            <li>Emotional design can support habit building.</li>
+            <li>Less UI can create more calm (better focus).</li>
+            <li>Feedback matters as much as the timer.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer">
+        <a class="btn primary" href="https://fensi.my.canva.site/workandwhisk" target="_blank" rel="noopener">Visit site</a>
+        <a class="btn" href="Projects.html">Back to Projects</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
