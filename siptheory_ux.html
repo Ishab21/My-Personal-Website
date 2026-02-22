@@ -4,456 +4,221 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sip Theory • UX Case Study</title>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
-
-  <style>
-    :root{
-      --ink:#10203a;
-      --muted:#5b677a;
-      --line:rgba(16,32,58,.10);
-      --bg:#f6f1e8;
-      --accent:#ff8a2a;
-      --accent2:#3aa7ff;
-      --shadow: 0 18px 55px rgba(16,32,58,.12);
-      --radius: 22px;
-      --radius2: 16px;
-      --max: 1080px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background: radial-gradient(1200px 700px at 20% 10%, rgba(255,138,42,.14), transparent 60%),
-                  radial-gradient(1200px 700px at 85% 15%, rgba(58,167,255,.16), transparent 55%),
-                  var(--bg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--ink);
-      line-height:1.55;
-    }
-    .topline{
-      max-width:var(--max);
-      margin:22px auto 0;
-      padding:0 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:rgba(16,32,58,.55);
-    }
-    .topline a{
-      color:rgba(16,32,58,.75);
-      text-decoration:none;
-      border-bottom:1px solid rgba(16,32,58,.25);
-      padding-bottom:2px;
-    }
-    .wrap{max-width:var(--max); margin:12px auto 80px; padding:0 18px;}
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.80));
-      border:1px solid var(--line);
-      border-radius: calc(var(--radius) + 8px);
-      box-shadow: var(--shadow);
-      padding: 44px 28px 34px;
-    }
-    .blob{position:absolute;border-radius:999px;opacity:.85;pointer-events:none;}
-    .blob.orange{
-      width:220px;height:220px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,138,42,.95), rgba(255,138,42,.20));
-      top:-60px; left:-50px;
-    }
-    .blob.blue{
-      width:260px;height:260px;
-      background: radial-gradient(circle at 30% 30%, rgba(58,167,255,.88), rgba(58,167,255,.18));
-      top:-70px; right:-70px;
-    }
-    .blob.dot{width:26px;height:26px;background: rgba(58,167,255,.55);top:58px;right:92px}
-    .blob.dot2{width:18px;height:18px;background: rgba(255,138,42,.55);top:86px;left:120px}
-
-    .heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center;}
-    .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,32,58,.60);margin:0 0 10px;}
-    .title{font-size: clamp(44px, 6vw, 74px);line-height:.95;margin:0;font-weight:800;letter-spacing:-.02em;}
-    .subtitle{margin:14px 0 0;color:rgba(16,32,58,.72);font-size:16px;max-width:55ch;}
-    .pillRow{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:rgba(16,32,58,.60);font-size:13px;}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:rgba(16,32,58,.06);border:1px solid rgba(16,32,58,.10);}
-    .ctaRow{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 14px;border-radius:14px;border:1px solid rgba(16,32,58,.14);
-      background:white;text-decoration:none;color:rgba(16,32,58,.92);font-weight:650;
-      box-shadow: 0 10px 25px rgba(16,32,58,.08);
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .btn:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(16,32,58,.12)}
-    .btn.primary{
-      background: linear-gradient(180deg, rgba(255,138,42,.92), rgba(255,138,42,.80));
-      border-color: rgba(255,138,42,.40);
-      color:#1b130c;
-    }
-    .btn.ghost{background:transparent;box-shadow:none;}
-
-    .heroCard{
-      background: rgba(255,255,255,.92);
-      border:1px solid rgba(16,32,58,.10);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow: 0 12px 35px rgba(16,32,58,.10);
-    }
-    .heroCard h3{margin:0 0 10px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:rgba(16,32,58,.60);}
-    .heroCard .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-    .stat{border:1px solid rgba(16,32,58,.10);background:rgba(16,32,58,.03);border-radius:16px;padding:12px;}
-    .stat .big{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:0;}
-    .stat .small{margin:4px 0 0;color:rgba(16,32,58,.62);font-size:12.5px;}
-
-    .section{
-      margin-top:26px;
-      background: rgba(255,255,255,.86);
-      border:1px solid rgba(16,32,58,.10);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-    .sectionTitle{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:18px;}
-    .bar{width:26px;height:4px;border-radius:999px;background:var(--accent);}
-    .p{margin:0;color:rgba(16,32,58,.78)}
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px;}
-    .card{
-      background:white;border:1px solid rgba(16,32,58,.10);
-      border-radius: var(--radius2);padding:16px;
-      box-shadow: 0 12px 28px rgba(16,32,58,.08);
-    }
-    .card h4{margin:0 0 8px;font-size:14px}
-    .list{margin:0;padding-left:18px;color:rgba(16,32,58,.78)}
-    .list li{margin:6px 0}
-    .toolsRow{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;align-items:center;}
-    .tool{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid rgba(16,32,58,.10);border-radius:14px;background:rgba(16,32,58,.03);}
-    .tool i{font-size:22px}
-    .tool span{font-weight:650;font-size:13px}
-    .muted{color:rgba(16,32,58,.62)}
-
-    .process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:14px;}
-    .step{text-align:center;padding:14px 12px;border-radius:18px;border:1px solid rgba(16,32,58,.10);background:white;box-shadow:0 12px 28px rgba(16,32,58,.07);}
-    .iconBubble{
-      width:54px;height:54px;border-radius:18px;margin:0 auto 10px;
-      display:flex;align-items:center;justify-content:center;
-      background: rgba(255,138,42,.14);
-      border:1px solid rgba(255,138,42,.22);
-      font-size:22px;
-    }
-    .step:nth-child(2) .iconBubble{background:rgba(58,167,255,.14);border-color:rgba(58,167,255,.22)}
-    .step:nth-child(3) .iconBubble{background:rgba(255,138,42,.14);border-color:rgba(255,138,42,.22)}
-    .step:nth-child(4) .iconBubble{background:rgba(58,167,255,.14);border-color:rgba(58,167,255,.22)}
-    .step:nth-child(5) .iconBubble{background:rgba(255,138,42,.14);border-color:rgba(255,138,42,.22)}
-    .step h5{margin:0;font-size:14px}
-    .step p{margin:6px 0 0;font-size:12.5px;color:rgba(16,32,58,.65)}
-
-    .bigStep{padding:0;overflow:hidden;}
-    .bigStepHeader{padding:22px 22px 0;}
-    .bigStepHeader .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(16,32,58,.55);margin:0}
-    .bigStepHeader h3{margin:8px 0 0;font-size:30px;letter-spacing:-.02em}
-    .bigStepBody{padding:16px 22px 22px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
-    .callouts{display:grid;gap:10px;}
-    .callout{
-      border-left:4px solid var(--accent);
-      padding:10px 12px;
-      background: rgba(255,138,42,.08);
-      border-radius:14px;
-      border:1px solid rgba(255,138,42,.16);
-      color:rgba(16,32,58,.78);
-      font-size:13px;
-    }
-    .callout.blue{
-      border-left-color: var(--accent2);
-      background: rgba(58,167,255,.08);
-      border-color: rgba(58,167,255,.16);
-    }
-    .board{
-      width:100%;
-      height:260px;
-      border-radius:18px;
-      background:
-        radial-gradient(140px 140px at 22% 20%, rgba(255,138,42,.18), transparent 60%),
-        radial-gradient(160px 160px at 80% 30%, rgba(58,167,255,.18), transparent 60%),
-        rgba(16,32,58,.04);
-      border:1px solid rgba(16,32,58,.10);
-      box-shadow: 0 14px 40px rgba(16,32,58,.08);
-    }
-    .mockPhones{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;}
-    .phone{
-      width:120px;height:250px;border-radius:22px;
-      background: linear-gradient(180deg, rgba(16,32,58,.10), rgba(16,32,58,.05));
-      border:1px solid rgba(16,32,58,.14);
-      box-shadow: 0 18px 45px rgba(16,32,58,.10);
-      position:relative;overflow:hidden;
-    }
-    .phone:before{
-      content:"";position:absolute;inset:14px;border-radius:18px;
-      background: rgba(255,255,255,.65);
-      border:1px solid rgba(16,32,58,.10);
-    }
-
-    .footer{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-
-    @media (max-width: 920px){
-      .heroGrid{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
-      .process{grid-template-columns:1fr 1fr}
-      .bigStepBody{grid-template-columns:1fr}
-      .mockPhones{justify-content:flex-start}
-    }
-    @media (max-width: 520px){
-      .process{grid-template-columns:1fr}
-    }
-  </style>
+  <link rel="stylesheet" href="proj.css" />
 </head>
 
-<body>
-  <div class="topline">
-    <div>UX CASE STUDY</div>
-    <div class="muted">Sip Theory</div>
-    <div><a href="Projects.html">Back to Projects</a></div>
-  </div>
+<body class="ux-body">
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="blob orange"></div>
-      <div class="blob blue"></div>
-      <div class="blob dot"></div>
-      <div class="blob dot2"></div>
+  <header class="ux-top">
+    <div class="ux-top-left">UX CASE STUDY</div>
+    <div class="ux-top-center">SIP THEORY</div>
+    <div class="ux-top-right"><a href="Projects.html">Back</a></div>
+  </header>
 
-      <div class="heroGrid">
-        <div>
-          <p class="kicker">Concept Brand Website</p>
-          <h1 class="title">UX CASE STUDY</h1>
-          <p class="subtitle">
-            Sip Theory is a story-led boba brand concept site that balances immersive visuals with
-            clear information hierarchy, responsive readability, and subtle interactions that guide
-            user attention without overwhelming the experience.
-          </p>
-
-          <div class="pillRow">
-            <span class="pill"><strong>Platform:</strong>&nbsp;Responsive Web</span>
-            <span class="pill"><strong>Tech:</strong>&nbsp;HTML • CSS • JS</span>
-            <span class="pill"><strong>Focus:</strong>&nbsp;Storytelling UX</span>
-          </div>
-
-          <div class="ctaRow">
-            <a class="btn primary" href="https://ishab21.github.io/Sip-Theory/" target="_blank" rel="noopener">Visit site</a>
-            <a class="btn" href="#process">Design process</a>
-            <a class="btn ghost" href="#artifacts">Artifacts</a>
-          </div>
-        </div>
-
-        <aside class="heroCard">
-          <h3>Project Snapshot</h3>
-          <div class="row">
-            <div class="stat">
-              <p class="big">1</p>
-              <p class="small">Designer/Dev</p>
-            </div>
-            <div class="stat">
-              <p class="big">2–5</p>
-              <p class="small">Iterations</p>
-            </div>
-            <div class="stat">
-              <p class="big">HTML</p>
-              <p class="small">Structure</p>
-            </div>
-            <div class="stat">
-              <p class="big">CSS</p>
-              <p class="small">Responsive UI</p>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="sectionTitle"><span class="bar"></span>Problem Statement</h2>
-      <p class="p">
-        Many café concept sites look beautiful but lack clarity: users can’t quickly understand what the brand is,
-        what makes it different, or what to do next—especially on mobile. Sip Theory needed to feel immersive while
-        remaining scannable and intuitive.
+  <!-- HERO -->
+  <section class="ux-hero">
+    <div class="ux-hero-inner">
+      <div class="ux-badge">Concept Brand Website</div>
+      <h1 class="ux-title">UX CASE STUDY</h1>
+      <p class="ux-subtitle">
+        Sip Theory is a story-led boba brand concept site designed to feel immersive but still easy to navigate.
+        I focused on visual hierarchy, responsive layout decisions, and small interactions that guide attention calmly.
       </p>
 
-      <div class="grid2">
-        <div class="card">
-          <h4>The Solution</h4>
-          <ul class="list">
-            <li>Story-first layout with clear checkpoints (what → why → next action).</li>
-            <li>Calm hierarchy and spacing for fast scanning.</li>
-            <li>Subtle micro-interactions for affordance (not decoration).</li>
-            <li>Responsive decisions that protect readability and tap targets.</li>
+      <div class="ux-hero-actions">
+        <a class="ux-btn ux-btn-primary" href="https://ishab21.github.io/Sip-Theory/" target="_blank" rel="noopener">Visit site</a>
+        <a class="ux-btn" href="#step2">Jump to Ideation</a>
+      </div>
+    </div>
+
+    <!-- floating circles like reference -->
+    <span class="ux-orb ux-orb-orange"></span>
+    <span class="ux-orb ux-orb-blue"></span>
+    <span class="ux-orb ux-orb-orange-small"></span>
+    <span class="ux-orb ux-orb-blue-small"></span>
+  </section>
+
+  <!-- SUMMARY BLOCKS -->
+  <section class="ux-section ux-summary">
+    <div class="ux-summary-grid">
+      <div class="ux-summary-item">
+        <h3>Problem</h3>
+        <p>
+          Many café brand websites look visually strong but feel unclear on mobile—users can’t quickly understand the brand,
+          find what they need, or know what action to take next.
+        </p>
+      </div>
+
+      <div class="ux-summary-item">
+        <h3>Solution</h3>
+        <ul>
+          <li>Structured the site like a story with clear checkpoints.</li>
+          <li>Designed typography + spacing for quick scanning.</li>
+          <li>Added subtle interactions for guidance (not distraction).</li>
+        </ul>
+      </div>
+
+      <div class="ux-summary-item">
+        <h3>Tech Used</h3>
+        <ul>
+          <li>HTML (semantic structure)</li>
+          <li>CSS (layout, responsive design, styling)</li>
+          <li>JavaScript (small UI interactions)</li>
+        </ul>
+      </div>
+
+      <div class="ux-summary-item">
+        <h3>How users should feel</h3>
+        <ul>
+          <li>Warm + welcomed (like walking into a café)</li>
+          <li>Curious to explore</li>
+          <li>Calm because everything feels clear</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 1 -->
+  <section class="ux-section ux-step">
+    <div class="ux-step-header">
+      <div class="ux-step-kicker">STEP 1</div>
+      <h2>Discovery</h2>
+      <p class="ux-step-subtitle">Research + observation</p>
+    </div>
+
+    <div class="ux-step-grid">
+      <div class="ux-step-text">
+        <h3>Thinking Process</h3>
+        <p>
+          I explored café/lifestyle brand sites and focused on what makes users stay or leave quickly.
+          The biggest pattern I noticed: visuals were strong, but the hierarchy wasn’t mobile-friendly.
+          That shaped my approach—clarity first, story second.
+        </p>
+
+        <h3>Typography + Style</h3>
+        <ul>
+          <li>Large headline for instant brand impression.</li>
+          <li>Short readable paragraphs (max line length).</li>
+          <li>Warm neutral palette to feel cozy + premium.</li>
+        </ul>
+      </div>
+
+      <div class="ux-step-media">
+        <!-- Replace with your image later -->
+        <div class="ux-img-slot">
+          <p>Drop your discovery screenshots here</p>
+          <!-- <img src="sip_discovery.png" alt="Sip Theory discovery" /> -->
+        </div>
+        <p class="ux-caption">Example: inspiration, competitor scan, notes, moodboard.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2 like your reference -->
+  <section class="ux-section ux-step" id="step2">
+    <div class="ux-step-header">
+      <div class="ux-step-kicker">STEP 2</div>
+      <h2>Ideation</h2>
+      <p class="ux-step-subtitle">Workshops and research</p>
+    </div>
+
+    <div class="ux-ideation">
+      <div class="ux-idea-row">
+        <div class="ux-idea-left">
+          <h3>1. Structure the story (without losing clarity)</h3>
+          <p>
+            I mapped the flow like a guided experience: introduce the brand, reinforce the vibe,
+            then lead the user to the next action. The goal was to keep it immersive but still scannable.
+          </p>
+        </div>
+
+        <div class="ux-idea-right">
+          <div class="ux-img-row">
+            <div class="ux-phone-slot"></div>
+            <div class="ux-phone-slot"></div>
+            <div class="ux-phone-slot"></div>
+          </div>
+          <p class="ux-caption">Replace these placeholders with your wireframes/screens.</p>
+        </div>
+      </div>
+
+      <div class="ux-idea-row">
+        <div class="ux-idea-left">
+          <h3>2. Cognitive mapping for tone of voice</h3>
+          <p>
+            I defined the “Sip Theory mood” as warm, editorial, and calm. That informed typography choices,
+            spacing, and micro-interactions. Everything needed to feel premium, not loud.
+          </p>
+          <ul>
+            <li>What emotions should the user feel as they scroll?</li>
+            <li>Where does the site need to pause vs. guide?</li>
           </ul>
         </div>
-        <div class="card">
-          <h4>My Role</h4>
-          <ul class="list">
-            <li>UX strategy + information architecture</li>
-            <li>UI design (type, spacing, components)</li>
-            <li>Interaction design</li>
-            <li>Front-end build (HTML/CSS/JS)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="grid2">
-        <div>
-          <h2 class="sectionTitle"><span class="bar"></span>Project Duration</h2>
-          <div class="grid2">
-            <div class="card">
-              <h4>Timeline</h4>
-              <p class="p"><strong style="font-size:34px;letter-spacing:-.03em;">1–2</strong> weeks</p>
-              <p class="muted" style="margin:6px 0 0;">rapid iteration + polish</p>
-            </div>
-            <div class="card">
-              <h4>Deliverables</h4>
-              <p class="p"><strong style="font-size:34px;letter-spacing:-.03em;">1</strong> live site</p>
-              <p class="muted" style="margin:6px 0 0;">project + case study</p>
-            </div>
+        <div class="ux-idea-right">
+          <div class="ux-img-slot">
+            <p>Affinity mapping / notes / screenshots here</p>
+            <!-- <img src="sip_mapping.png" alt="Mapping" /> -->
           </div>
-        </div>
-
-        <div>
-          <h2 class="sectionTitle"><span class="bar"></span>Tools Used</h2>
-          <div class="toolsRow">
-            <div class="tool"><i class="devicon-html5-plain"></i><span>HTML</span></div>
-            <div class="tool"><i class="devicon-css3-plain"></i><span>CSS</span></div>
-            <div class="tool"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
-            <div class="tool"><span>GitHub Pages</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <h2 class="sectionTitle"><span class="bar"></span>Design Process</h2>
-
-      <div class="process">
-        <div class="step">
-          <div class="iconBubble">🔍</div>
-          <h5>Empathize</h5>
-          <p>discovery behavior + scan patterns</p>
-        </div>
-        <div class="step">
-          <div class="iconBubble">🧭</div>
-          <h5>Define</h5>
-          <p>clarity + story pacing for mobile</p>
-        </div>
-        <div class="step">
-          <div class="iconBubble">💡</div>
-          <h5>Ideate</h5>
-          <p>IA checkpoints + interaction options</p>
-        </div>
-        <div class="step">
-          <div class="iconBubble">🎨</div>
-          <h5>Design</h5>
-          <p>type scale + spacing + components</p>
-        </div>
-        <div class="step">
-          <div class="iconBubble">✅</div>
-          <h5>Test</h5>
-          <p>iterate for readability + flow</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bigStep" id="artifacts">
-      <div class="bigStepHeader">
-        <p class="k">STEP 1</p>
-        <h3>Discovery + Competitive Scan</h3>
-      </div>
-      <div class="bigStepBody">
-        <div class="callouts">
-          <div class="callout">
-            <strong>What I noticed:</strong> Visual-first sites often break on mobile with long copy and unclear next steps.
-          </div>
-          <div class="callout blue">
-            <strong>Insight:</strong> Users decide quickly from social links—clarity first, story second.
-          </div>
-          <div class="callout">
-            <strong>Direction:</strong> Editorial pacing + checkpoints + restrained motion.
-          </div>
-        </div>
-        <div class="board" aria-label="Placeholder: moodboard / notes"></div>
-      </div>
-    </section>
-
-    <section class="section bigStep">
-      <div class="bigStepHeader">
-        <p class="k">STEP 2</p>
-        <h3>Ideation</h3>
-      </div>
-      <div class="bigStepBody">
-        <div class="callouts">
-          <div class="callout blue">
-            <strong>IA method:</strong> Each section answers one question (What is this? Why care? What next?).
-          </div>
-          <div class="callout">
-            <strong>Feature choices:</strong> short paragraphs, CTA visibility, consistent spacing rhythm.
-          </div>
-          <div class="callout blue">
-            <strong>Motion rule:</strong> use animation for affordance only.
-          </div>
-        </div>
-        <div class="mockPhones" aria-label="Placeholder: wireframes">
-          <div class="phone"></div><div class="phone"></div><div class="phone"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bigStep">
-      <div class="bigStepHeader">
-        <p class="k">STEP 3</p>
-        <h3>UI + Build Decisions</h3>
-      </div>
-      <div class="bigStepBody">
-        <div class="callouts">
-          <div class="callout">
-            <strong>Typography:</strong> a premium “café calm” hierarchy.
-          </div>
-          <div class="callout blue">
-            <strong>Responsive UX:</strong> protect line length, spacing, tap targets.
-          </div>
-          <div class="callout">
-            <strong>Implementation:</strong> semantic HTML + CSS layout/motion + JS behaviors.
-          </div>
-        </div>
-        <div class="board" aria-label="Placeholder: components / system"></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="sectionTitle"><span class="bar"></span>Challenges & Learnings</h2>
-      <div class="grid2">
-        <div class="card">
-          <h4>Challenges</h4>
-          <ul class="list">
-            <li>Balancing poetic storytelling with scannability.</li>
-            <li>Keeping motion premium instead of noisy.</li>
-            <li>Maintaining readability across breakpoints.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h4>What I Learned</h4>
-          <ul class="list">
-            <li>Clarity creates trust—then users stay for the story.</li>
-            <li>Restraint often reads as more premium.</li>
-            <li>Responsive design is UX, not just layout.</li>
-          </ul>
         </div>
       </div>
 
-      <div class="footer">
-        <a class="btn primary" href="https://ishab21.github.io/Sip-Theory/" target="_blank" rel="noopener">Visit site</a>
-        <a class="btn" href="Projects.html">Back to Projects</a>
+      <div class="ux-idea-row">
+        <div class="ux-idea-left">
+          <h3>3. Feature selection (why these features)</h3>
+          <p>
+            I intentionally kept features minimal: smooth scrolling, clear CTA placement, and gentle hover states.
+            I avoided anything flashy that could break the calm experience.
+          </p>
+        </div>
+
+        <div class="ux-idea-right">
+          <div class="ux-img-slot">
+            <p>Feature sketches / UI screenshots here</p>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="ux-section ux-step">
+    <div class="ux-step-header">
+      <div class="ux-step-kicker">STEP 3</div>
+      <h2>Design + Build</h2>
+      <p class="ux-step-subtitle">Implementation + refinements</p>
+    </div>
+
+    <div class="ux-step-grid">
+      <div class="ux-step-text">
+        <h3>Challenges</h3>
+        <ul>
+          <li>Making storytelling feel clear (not paragraph-heavy).</li>
+          <li>Keeping the design premium on mobile breakpoints.</li>
+          <li>Choosing interactions that guide, not distract.</li>
+        </ul>
+
+        <h3>What I improved after testing myself</h3>
+        <ul>
+          <li>Shortened text blocks and added breathing room.</li>
+          <li>Adjusted font sizes for small screens.</li>
+          <li>Moved CTAs to appear earlier in the scroll.</li>
+        </ul>
+      </div>
+
+      <div class="ux-step-media">
+        <div class="ux-img-slot">
+          <p>Final UI screenshots here</p>
+        </div>
+        <p class="ux-caption">Tip: add 2–3 final screens to show the before/after improvements.</p>
+      </div>
+    </div>
+
+    <div class="ux-footer-actions">
+      <a class="ux-btn ux-btn-primary" href="https://ishab21.github.io/Sip-Theory/" target="_blank" rel="noopener">Visit site</a>
+      <a class="ux-btn" href="Projects.html">Back to Projects</a>
+    </div>
+  </section>
+
 </body>
 </html>
